@@ -18,6 +18,7 @@
         <module>kafka-test</module>
         <module>future-test</module>
         <module>proxy-test</module>
+        <module>bucket4j-test</module>
     </modules>
 
     <properties>
