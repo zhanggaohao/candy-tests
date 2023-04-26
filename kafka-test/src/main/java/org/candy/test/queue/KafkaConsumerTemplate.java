@@ -8,7 +8,6 @@ import org.springframework.util.ObjectUtils;
 
 import java.time.Duration;
 import java.util.*;
-import java.util.function.Function;
 
 /**
  * Kafka 实现的队列消息消费者
@@ -20,9 +19,9 @@ public class KafkaConsumerTemplate<T extends QueueMessage> implements QueueConsu
 
     private final String topic;
     private final KafkaConsumer<UUID, byte[]> kafkaConsumer;
-    private Function<ConsumerRecord<UUID, byte[]>, T> decoder;
+    private QueueDecoder<T> decoder;
 
-    public KafkaConsumerTemplate(KafkaSettings settings, String clientId, String groupId, String topic, Function<ConsumerRecord<UUID, byte[]>, T> decoder) {
+    public KafkaConsumerTemplate(KafkaSettings settings, String clientId, String groupId, String topic, QueueDecoder<T> decoder) {
         Properties props = settings.toConsumerProps();
         props.put(ConsumerConfig.CLIENT_ID_CONFIG, clientId);
         if (!ObjectUtils.isEmpty(groupId)) {
@@ -41,7 +40,7 @@ public class KafkaConsumerTemplate<T extends QueueMessage> implements QueueConsu
     @Override
     public List<T> poll(Duration timeout) {
         List<ConsumerRecord<UUID, byte[]>> records = doPoll(timeout);
-        return records.stream().map(this::decode).toList();
+        return records.stream().map(decoder::decode).toList();
     }
 
     private List<ConsumerRecord<UUID, byte[]>> doPoll(Duration timeout) {
@@ -49,10 +48,6 @@ public class KafkaConsumerTemplate<T extends QueueMessage> implements QueueConsu
         List<ConsumerRecord<UUID, byte[]>> records = new ArrayList<>();
         consumerRecords.forEach(records::add);
         return records;
-    }
-
-    private T decode(ConsumerRecord<UUID, byte[]> record) {
-        return decoder.apply(record);
     }
 
     @Override

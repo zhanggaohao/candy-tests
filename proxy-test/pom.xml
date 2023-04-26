@@ -9,14 +9,18 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <name>Future Test</name>
-    <artifactId>future-test</artifactId>
+    <artifactId>proxy-test</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.14.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
         </dependency>
     </dependencies>
 

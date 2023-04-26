@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.candy</groupId>
-    <artifactId>tests</artifactId>
+    <artifactId>candy-tests</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Candy Tests</name>
@@ -17,6 +17,7 @@
     <modules>
         <module>kafka-test</module>
         <module>future-test</module>
+        <module>proxy-test</module>
     </modules>
 
     <properties>
