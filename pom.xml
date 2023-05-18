@@ -19,6 +19,7 @@
         <module>future-test</module>
         <module>proxy-test</module>
         <module>bucket4j-test</module>
+        <module>jpa-test</module>
     </modules>
 
     <properties>
