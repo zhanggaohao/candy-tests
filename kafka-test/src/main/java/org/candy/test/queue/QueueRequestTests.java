@@ -44,7 +44,7 @@ public class QueueRequestTests {
                     }
                 }, MoreExecutors.directExecutor());
             }
-        }, 0, 200, TimeUnit.MILLISECONDS);
+        }, 0, 2000, TimeUnit.MILLISECONDS);
     }
 
     static QueueMessage decode(ConsumerRecord<UUID, byte[]> record) {

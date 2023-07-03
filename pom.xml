@@ -20,6 +20,7 @@
         <module>proxy-test</module>
         <module>bucket4j-test</module>
         <module>jpa-test</module>
+        <module>netty-tests</module>
     </modules>
 
     <properties>
