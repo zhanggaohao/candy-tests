@@ -21,6 +21,12 @@
         <module>bucket4j-test</module>
         <module>jpa-test</module>
         <module>netty-tests</module>
+        <module>websocket-tests</module>
+        <module>queue-test</module>
+        <module>cache-tests</module>
+        <module>thread-test</module>
+        <module>file-test</module>
+        <module>actor-test</module>
     </modules>
 
     <properties>
@@ -30,4 +36,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
 </project>

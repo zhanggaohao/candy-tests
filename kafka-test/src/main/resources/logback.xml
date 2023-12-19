@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="3 seconds">
+
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{ISO8601} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.kafka.common.metrics.Metrics" level="WARN"/>
+    <logger name="org.apache.kafka.common.utils.AppInfoParser" level="WARN"/>
+    <logger name="org.apache.kafka.common.network" level="WARN"/>
+    <logger name="org.apache.kafka.clients" level="WARN"/>
+
+    <root>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
