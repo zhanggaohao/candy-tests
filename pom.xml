@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.2.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.candy</groupId>
@@ -27,6 +27,7 @@
         <module>thread-test</module>
         <module>file-test</module>
         <module>actor-test</module>
+        <module>elasticsearch-test</module>
     </modules>
 
     <properties>
